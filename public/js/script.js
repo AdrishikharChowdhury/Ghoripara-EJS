@@ -11,7 +11,15 @@ const slideshow = () => {
 };
 
 watchImg.src = `${BASE_URL}/${slideshow()}`;
+watchImg.classList.add('animate-fade-in');
 
 setInterval(() => {
-  watchImg.src = `${BASE_URL}/${slideshow()}`;
+  watchImg.style.transition = 'opacity 0.4s ease-out';
+  watchImg.style.opacity = '0';
+  
+  setTimeout(() => {
+    watchImg.src = `${BASE_URL}/${slideshow()}`;
+    watchImg.style.transition = 'opacity 0.6s ease-in';
+    watchImg.style.opacity = '1';
+  }, 500);
 }, 5000);

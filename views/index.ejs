@@ -8,41 +8,23 @@
   </head>
   <body class="bg-black flex w-full justify-start items-center h-full flex-col">
     <nav
-      class="flex justify-center gap-50 items-center px-10 w-full bg-white h-30"
+      class="flex justify-center gap-50 items-center px-10 w-full bg-white h-30 animate-slide-down"
     >
-      <h1 class="text-5xl font-extrabold">Ghoripara</h1>
+      <h1 class="text-5xl font-extrabold animate-float">Ghoripara</h1>
       <ul class="flex items-center justify-center gap-10 text-xl">
-        <a href="#home"
-          ><li class="hover:underline underline-offset-4 decoration-2">
-            Home
-          </li></a
-        >
-        <a href="#about-us"
-          ><li class="hover:underline underline-offset-4 decoration-2">
-            About Us
-          </li></a
-        >
-        <a href="#woat"
-          ><li class="hover:underline underline-offset-4 decoration-2">
-            W.O.A.T
-          </li></a
-        >
+        <a href="#home"><li class="nav-link">Home</li></a>
+        <a href="#about-us"><li class="nav-link">About Us</li></a>
+        <a href="#woat"><li class="nav-link">W.O.A.T</li></a>
         <a href="#bts">
-          <li class="hover:underline underline-offset-4 decoration-2">
-            Behind The Gears
-          </li>
+          <li class="nav-link">Behind The Gears</li>
         </a>
-        <a href="#newsletter">
-          <li class="hover:underline underline-offset-4 decoration-2">
-            Newsletter
-          </li></a
-        >
+        <a href="#newsletter"> <li class="nav-link">Newsletter</li></a>
       </ul>
       <ul class="flex items-center justify-center gap-8 text-lg text-gray-600">
-        <li class="px-6 py-3 bg-black text-white shadow-xl">
+        <li class="px-6 py-3 bg-black text-white shadow-xl btn-animate">
           <a href="/register">Sign Up</a>
         </li>
-        <li class="px-6 py-3 bg-black text-white shadow-xl">
+        <li class="px-6 py-3 bg-black text-white shadow-xl btn-animate">
           <a href="/login">Log In</a>
         </li>
       </ul>
@@ -51,10 +33,10 @@
       <img
         src="/images/banner1.webp"
         alt="banner-1"
-        class="object-cover w-1/3 h-full shadow-xl"
+        class="object-cover w-1/3 h-full shadow-xl image-zoom animate-fade-in-left"
       />
       <div
-        class="w-1/3 h-full p-5 flex flex-col justify-center items-center gap-6"
+        class="w-1/3 h-full p-5 flex flex-col justify-center items-center gap-6 animate-fade-in-up delay-200"
       >
         <div class="flex flex-col gap-2">
           <p class="text-3xl font-light tracking-widest">Welcome to,</p>
@@ -69,8 +51,12 @@
           Wear your time and be a time keeper yourself
         </p>
         <div class="flex w-full justify-center items-center gap-6">
-          <a class="px-6 py-3 bg-black text-white shadow-xl" href="">Explore</a>
-          <a class="px-6 py-3 bg-black text-white shadow-xl" href="/register"
+          <a class="px-6 py-3 bg-black text-white shadow-xl btn-animate" href=""
+            >Explore</a
+          >
+          <a
+            class="px-6 py-3 bg-black text-white shadow-xl btn-animate"
+            href="/register"
             >Join Us</a
           >
         </div>
@@ -78,17 +64,17 @@
       <img
         src="/images/banner2.webp"
         alt="banner-2"
-        class="object-cover w-1/3 h-full shadow-xl"
+        class="object-cover w-1/3 h-full shadow-xl image-zoom animate-fade-in-right"
       />
     </section>
     <section class="w-full flex h-screen bg-gray-200" id="about-us">
       <div
         class="w-1/2 h-full flex flex-col justify-center items-center gap-10 p-10"
       >
-        <h1 class="text-6xl font-bold">About Us</h1>
+        <h1 class="text-6xl font-bold scroll-animate">About Us</h1>
         <div class="grid grid-cols-2 grid-rows-2 gap-6">
           <div
-            class="flex flex-col justify-start items-center p-7 text-center gap-4"
+            class="flex flex-col justify-start items-center p-7 text-center gap-4 scroll-animate card-hover"
           >
             <h2 class="text-2xl font-semibold">Precision Engineering:</h2>
             <p class="text-lg/8 tracking-widest">
@@ -98,7 +84,7 @@
             </p>
           </div>
           <div
-            class="flex flex-col justify-start items-center p-7 text-center gap-4"
+            class="flex flex-col justify-start items-center p-7 text-center gap-4 scroll-animate card-hover"
           >
             <h2 class="text-2xl font-semibold">Timeless Investment:</h2>
             <p class="text-lg/8 tracking-widest">
@@ -108,7 +94,7 @@
             </p>
           </div>
           <div
-            class="flex flex-col justify-start items-center p-7 text-center gap-4"
+            class="flex flex-col justify-start items-center p-7 text-center gap-4 scroll-animate card-hover"
           >
             <h2 class="text-2xl font-semibold">Discipline Manifested:</h2>
             <p class="text-lg/8 tracking-widest">
@@ -118,7 +104,7 @@
             </p>
           </div>
           <div
-            class="flex flex-col justify-start items-center p-7 text-center gap-4"
+            class="flex flex-col justify-start items-center p-7 text-center gap-4 scroll-animate card-hover"
           >
             <h2 class="text-2xl font-semibold">Legacy in Motion:</h2>
             <p class="text-lg/8 tracking-widest">
@@ -132,7 +118,7 @@
       <img
         src="/images/aboutus.webp"
         alt="banner-1"
-        class="object-cover w-1/2 h-full shadow-xl"
+        class="object-cover w-1/2 h-full shadow-xl scroll-animate"
       />
     </section>
     <section
@@ -141,7 +127,7 @@
     >
       <img
         id="watch-img"
-        class="absolute inset-0 w-full h-full object-center z-0"
+        class="absolute inset-0 w-full h-full object-center z-0 transition-transform duration-700 hover:scale-105"
         alt=""
       />
       <div class="absolute inset-0 bg-black/80 z-10"></div>
@@ -149,50 +135,52 @@
       <div
         class="relative z-20 flex h-full w-2/3 items-center justify-center p-10 text-white flex-col text-center gap-6"
       >
-        <h2 class="text-5xl font-bold">W.O.A.T</h2>
-        <p class="text-xl/10 tracking-widest italic mt-4">
+        <h2 class="text-5xl font-bold scroll-animate">W.O.A.T</h2>
+        <p class="text-xl/10 tracking-widest italic mt-4 scroll-animate">
           More than an accessory, this is a statement forged in steel, detail,
           and discipline. Every curve, every finish, and every movement is
           designed to reflect timeless character rather than temporary trend.
         </p>
-        <p class="text-xl/10 tracking-widest italic">
+        <p class="text-xl/10 tracking-widest italic scroll-animate">
           Built for those who respect precision, this piece brings together
           refined craftsmanship, bold presence, and lasting value. It is not
           made to follow time—it is made to define it.
         </p>
         <a
-          class="px-8 py-4 bg-white text-xl text-black shadow-xl"
+          class="px-8 py-4 bg-white text-xl text-black shadow-xl btn-animate scroll-animate"
           href="/explore"
           >Explore</a
         >
       </div>
     </section>
     <section class="w-full flex h-screen bg-gray-100 p-10 gap-6" id="bts">
-      <div class="grid grid-cols-2 grid-rows-12 gap-5 w-1/2 h-full">
+      <div
+        class="grid grid-cols-2 grid-rows-12 gap-5 w-1/2 h-full scroll-animate"
+      >
         <img
           src="/images/btgpot.webp"
-          class="object-cover size-full col-span-2 row-span-8 rounded-4xl shadow-2xl"
+          class="object-cover size-full col-span-2 row-span-8 rounded-4xl shadow-2xl image-zoom"
         />
         <img
           src="/images/btgsq1.webp"
-          class="object-cover size-full row-span-4 row-start-9 rounded-4xl shadow-2xl"
+          class="object-cover size-full row-span-4 row-start-9 rounded-4xl shadow-2xl image-zoom"
         />
         <img
           src="/images/btgsq2.webp"
-          class="object-cover size-full row-span-4 row-start-9 rounded-4xl shadow-2xl"
+          class="object-cover size-full row-span-4 row-start-9 rounded-4xl shadow-2xl image-zoom"
         />
       </div>
       <div
         class="w-1/2 flex flex-col justify-center items-center gap-6 text-center p-5"
       >
-        <h2 class="text-6xl font-bold">Behind the Gears</h2>
-        <p class="text-xl/10 tracking-widest mt-4">
+        <h2 class="text-6xl font-bold scroll-animate">Behind the Gears</h2>
+        <p class="text-xl/10 tracking-widest mt-4 scroll-animate">
           Beneath every polished case lies a world of discipline, precision, and
           purpose. From the movement that drives each second to the finishing
           that refines every visible detail, our watches are built to honor both
           engineering and elegance.
         </p>
-        <p class="text-xl/10 tracking-widest">
+        <p class="text-xl/10 tracking-widest scroll-animate">
           Beneath every polished case lies a world of discipline, precision, and
           purpose. From the movement that drives each second to the finishing
           that refines every visible detail, our watches are built to honor both
@@ -204,20 +192,22 @@
       class="w-full flex text-center flex-col h-screen bg-gray-600 text-white justify-center items-center p-10 gap-10"
       id="newsletter"
     >
-      <h2 class="text-6xl font-bold">Stay in Time with Ghoripara</h2>
-      <p class="tracking-widest text-xl/10 w-2/3">
+      <h2 class="text-6xl font-bold scroll-animate">
+        Stay in Time with Ghoripara
+      </h2>
+      <p class="tracking-widest text-xl/10 w-2/3 scroll-animate">
         Be the first to discover new arrivals, limited releases, and stories
         from behind the craft. Join our circle for curated updates made for
         those who value precision, legacy, and timeless design.
       </p>
-      <form class="w-full max-w-2xl flex gap-4">
+      <form class="w-full max-w-2xl flex gap-4 scroll-animate">
         <input
           type="email"
           placeholder="Enter your email"
-          class="flex-1 px-6 py-4 rounded-full bg-white text-black outline-none"
+          class="flex-1 px-6 py-4 rounded-full bg-white text-black outline-none input-animate"
         />
         <button
-          class="px-8 py-4 rounded-full bg-white text-black font-semibold cursor-pointer hover:bg-gray-200"
+          class="px-8 py-4 rounded-full bg-white text-black font-semibold cursor-pointer hover:bg-gray-200 btn-animate"
         >
           Subscribe
         </button>
@@ -299,5 +289,21 @@
       </div>
     </footer>
     <script src="/js/script.js"></script>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document.querySelectorAll(".scroll-animate").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

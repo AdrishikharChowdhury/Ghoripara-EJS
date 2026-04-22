@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
+  <body class="flex w-full justify-center items-start h-full flex-col">
+    <nav
+      class="flex justify-center gap-50 items-center px-10 w-full bg-white h-30 animate-slide-down"
+    >
+      <h1 class="text-5xl font-extrabold animate-float">Ghoripara</h1>
+      <ul class="flex items-center justify-center gap-10 text-xl">
+        <a href="/explore"><li class="nav-link">Home</li></a>
+        <a href="/settings"> <li class="nav-link">Settings</li></a>
+        <a href="/logout"><li class="nav-link">Logout</li></a>
+      </ul>
+      <img
+        src="data:<%= user.pfp.mimetype %>;base64,<%= user.pfp.buffer.toString('base64') %>"
+        alt="image"
+        class="object-center bg-mauve-900 rounded-xl size-20"
+      />
+    </nav>
+    <div class="flex w-full justify-center items-start h-full flex-col px-10 gap-10 py-6">
+        <div class="flex flex-col justify-center items-start w-full gap-6 p-10 bg-gray-200 rounded-2xl">
+            <img
+            src="data:<%= user.pfp.mimetype %>;base64,<%= user.pfp.buffer.toString('base64') %>"
+            alt="image"
+            class="object-center bg-mauve-900 rounded-xl size-50"
+        />
+            <div class="flex flex-col">
+                <p class="text-4xl font-semibold">Welcome, <%= user.name%></p>
+                <p class="text-xl font-semibold text-gray-400">@<%= user.name%></p>
+                <p class="text-xl font-semibold text-gray-400"><%= user.email%></p>
+            </div>
+        </div>
+        <div id="cart" class="w-full">
+            <p class="text-3xl font-semibold ml-10">Your Cart:</p>
+            <div class="w-full flex justify-center items-center px-10">
+                <% if (user.cart.length===0){ %>
+                    <p class="text-4xl font-extralight mt-5 text-gray-300">No Items Yet</p>
+                <% } else{ %>
+
+                <% } %>
+            </div>
+        </div>
+        <div id="orders" class="w-full">
+            <p class="text-3xl font-semibold ml-10">Your Orders:</p>
+            <div class="w-full flex justify-center items-center px-10">
+                <% if (user.orders.length===0){ %>
+                    <p class="text-4xl font-extralight mt-5 text-gray-300">No Orders Yet</p>
+                <% } else{ %>
+
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
+  </body>
+</html>

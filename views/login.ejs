@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/output.css" />
   </head>
   <body class="w-full h-screen bg-white flex text-black ">
-    <div class="relative w-1/2 h-full">
+    <div class="relative w-1/2 h-full animate-fade-in">
       <img
-        class="w-full h-full object-center"
+        class="w-full h-full object-center transition-transform duration-700 hover:scale-105"
         src="/images/register-login.webp"
         alt=""
       />
       <div
         class="absolute inset-0 bg-black/70 rounded-lg flex-col flex justify-end p-5 items-center gap-6 text-white"
       >
-        <p class="text-3xl font-bold">Time is Money</p>
-        <p class="text-center text-md">
+        <p class="text-3xl font-bold animate-fade-in-up">Time is Money</p>
+        <p class="text-center text-md animate-fade-in-up delay-100">
           Time isn't just measured in seconds—it's measured in value. Every tick
           of the second hand represents opportunity, productivity, and legacy. A
           luxury watch doesn't just tell time; it embodies the discipline to
@@ -26,21 +26,21 @@
         <div
           class="w-full h-px bg-linear-to-r from-gray-700 via-white/30 to-gray-700"
         ></div>
-        <p class="text-center text-md font-semibold">
+        <p class="text-center text-md font-semibold animate-fade-in-up delay-200">
           "A man with a watch knows what time it is. A man with two watches is
           never sure."
         </p>
-        <p class="self-end mr-30 italic">~ Anonymous</p>
+        <p class="self-end mr-30 italic animate-fade-in-up delay-300">~ Anonymous</p>
         <div
           class="w-full h-px bg-linear-to-r from-gray-700 via-white/30 to-gray-700"
         ></div>
-        <p class="text-center text-md">
+        <p class="text-center text-md animate-fade-in-up delay-400">
           Wear your watch. Own your time. Build your empire.
         </p>
       </div>
     </div>
-    <div class="w-1/2 h-full flex justify-center items-center flex-col gap-10">
-      <a href="javascript:history.back()" class="self-start ml-12">Back</a>
+    <div class="w-1/2 h-full flex justify-center items-center flex-col gap-10 animate-fade-in-up">
+      <a href="javascript:history.back()" class="self-start ml-12 hover:translate-x-[-5px] transition-transform">Back</a>
       <h1 class="text-5xl font-bold">Sign In</h1>
       <form
         class="w-1/2 flex flex-col items-start justify-center gap-10"
@@ -53,7 +53,7 @@
         >
           <p class="text-xl font-bold">Name:</p>
           <input
-            class="p-4 bg-slate-300 outline-none rounded-xl w-full"
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
             type="text"
             name="name"
             required
@@ -65,7 +65,7 @@
         >
           <p class="text-xl font-bold">Email:</p>
           <input
-            class="p-4 bg-slate-300 outline-none rounded-xl w-full"
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
             type="email"
             name="email"
             required
@@ -77,14 +77,14 @@
         >
           <p class="text-xl font-bold">Password:</p>
           <input
-            class="p-4 bg-slate-300 outline-none rounded-xl w-full"
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
             type="password"
             name="password"
             required
           />
         </label>
         <button
-          class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer hover:bg-slate-100"
+          class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
           type="submit"
         >
           Sign In
@@ -92,7 +92,7 @@
       </form>
       <p class="tracking-widest text-md">
         Don't have an account?
-        <a class="hover:border-b-2" href="/register">Sign Up</a> instead
+        <a class="hover:border-b-2 transition-all" href="/register">Sign Up</a> instead
       </p>
     </div>
     <script src="/js/script.js"></script>

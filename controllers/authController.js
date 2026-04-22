@@ -3,8 +3,8 @@ const userModel = require("../models/user-model");
 const bcrypt = require("bcrypt");
 const { generateToken } = require("../utils/generateToken");
 
-module.exports.registerUser=async (req,res)=>{
-    try {
+module.exports.registerUser = async (req, res) => {
+  try {
     const { name, email, password, contact } = req.body;
     let existingUser = await userModel.findOne({ email });
     if (existingUser) {
@@ -21,9 +21,9 @@ module.exports.registerUser=async (req,res)=>{
     let token = generateToken(user);
     res.cookie("token", token);
     dbgr(user);
-    dbgr(token)
-    res.redirect("/");
+    dbgr(token);
+    return res.render("/dashboard");
   } catch (error) {
     dbgr(error.message);
   }
-}
+};
