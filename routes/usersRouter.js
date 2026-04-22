@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const dbgr = require("debug")("development: user");
+const { isLoggedIn } = require("../middlewares/loginVerify");
+const { generateToken } = require("../utils/generateToken");
+const userModel = require("../models/user-model");
 
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   try {
