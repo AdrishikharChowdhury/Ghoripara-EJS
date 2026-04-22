@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="/css/output.css" />
   </head>
   <body class="w-full h-screen bg-white flex text-black ">
+    <% if(error.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=error%>
+        </span>
+      </div>
+    <%} %>
+    <% if(success.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=success%>
+        </span>
+      </div>
+    <%} %>
     <div class="relative w-1/2 h-full animate-fade-in">
       <img
         class="w-full h-full object-center transition-transform duration-700 hover:scale-105"

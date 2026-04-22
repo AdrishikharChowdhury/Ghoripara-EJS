@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link rel="stylesheet" href="/css/output.css" />
+</head>
+<body>
+  <% if(error.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=error%>
+        </span>
+      </div>
+    <%} %>
+    <% if(success.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=success%>
+        </span>
+      </div>
+    <%} %>
+    <nav
+      class="flex justify-center gap-50 items-center px-10 w-full bg-white h-30 animate-slide-down"
+    >
+      <h1 class="text-5xl font-extrabold animate-float">Ghoripara</h1>
+      <ul class="flex items-center justify-center gap-10 text-xl">
+        <a href="/dashboard"><li class="nav-link">Profile</li></a>
+        <a href="/settings"> <li class="nav-link">Settings</li></a>
+        <a href="/logout"><li class="nav-link">Logout</li></a>
+      </ul>
+      <img
+        src="data:<%= user.pfp.mimetype %>;base64,<%= user.pfp.buffer.toString('base64') %>"
+        alt="image"
+        class="object-center bg-mauve-900 rounded-xl size-20"
+      />
+    </nav>
+</body>
+</html>

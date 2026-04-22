@@ -3,6 +3,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const dbgr = require("debug")("development:app");
+const expressSession = require("express-session");
+const flash = require("connect-flash");
 
 const db = require("./config/mongoose-connection");
 
@@ -11,8 +13,16 @@ const usersRouter = require("./routes/usersRouter");
 const productsRouter = require("./routes/productsRouter");
 const baseRouter = require("./routes/index");
 
-require("dotenv").config()
+require("dotenv").config();
 
+app.use(
+  expressSession({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.EXPRESS_SESSION_SECRET,
+  }),
+);
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -21,7 +31,7 @@ app.set("view engine", "ejs");
 
 app.use("/", baseRouter);
 app.use("/owners", ownersRouter);
-app.use("/users", usersRouter);
+app.use("/user", usersRouter);
 app.use("/products", productsRouter);
 
 app.listen(3000, () => {

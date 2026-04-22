@@ -8,6 +8,20 @@
     
   </head>
   <body class="w-full h-screen bg-white flex">
+    <% if(error.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=error%>
+        </span>
+      </div>
+    <%} %>
+    <% if(success.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=success%>
+        </span>
+      </div>
+    <%} %>
     <div class="w-1/2 h-full flex justify-center items-center flex-col gap-10 animate-fade-in-up">
       <a href="javascript:history.back()" class="self-start ml-12 hover:translate-x-[-5px] transition-transform">Back</a>
       <h1 class="text-5xl font-bold">Sign Up</h1>
