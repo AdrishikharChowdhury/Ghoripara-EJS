@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/css/output.css" />
   </head>
   <body class="w-full h-screen bg-white flex text-black ">
+    <div id="loader" class="loader-overlay hidden">
+      <div class="loader"></div>
+    </div>
     <% if(error.length>0){%>
       <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
         <span class="inline-block mt-1 mb-1 text-white">

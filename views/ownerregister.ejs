@@ -8,6 +8,9 @@
     
   </head>
   <body class="w-full h-screen bg-white flex">
+    <div id="loader" class="loader-overlay hidden">
+      <div class="loader"></div>
+    </div>
     <% if(error.length>0){%>
       <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
         <span class="inline-block mt-1 mb-1 text-white">
@@ -65,14 +68,13 @@
             required
           />
         </label>
-        <button
+<button
           class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
           type="submit"
         >
           Sign Up
         </button>
       </form>
-      <p class="tracking-widest text-md">Already have an account? <a href="/owners/login" class="hover:border-b-2 transition-all">Sign in</a> instead</p>
     </div>
     <div class="relative w-1/2 h-full animate-fade-in">
       <img

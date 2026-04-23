@@ -10,16 +10,30 @@ const slideshow = () => {
   return current;
 };
 
-watchImg.src = `${BASE_URL}/${slideshow()}`;
-watchImg.classList.add('animate-fade-in');
+if (watchImg) {
+  watchImg.src = `${BASE_URL}/${slideshow()}`;
+  watchImg.classList.add('animate-fade-in');
 
-setInterval(() => {
-  watchImg.style.transition = 'opacity 0.4s ease-out';
-  watchImg.style.opacity = '0';
-  
-  setTimeout(() => {
-    watchImg.src = `${BASE_URL}/${slideshow()}`;
-    watchImg.style.transition = 'opacity 0.6s ease-in';
-    watchImg.style.opacity = '1';
-  }, 500);
-}, 5000);
+  setInterval(() => {
+    watchImg.style.transition = 'opacity 0.4s ease-out';
+    watchImg.style.opacity = '0';
+    
+    setTimeout(() => {
+      watchImg.src = `${BASE_URL}/${slideshow()}`;
+      watchImg.style.transition = 'opacity 0.6s ease-in';
+      watchImg.style.opacity = '1';
+    }, 500);
+  }, 5000);
+}
+
+const loader = document.getElementById('loader');
+const forms = document.querySelectorAll('form');
+
+if (loader && forms.length > 0) {
+  forms.forEach(form => {
+    form.addEventListener('submit', () => {
+      loader.classList.remove('hidden');
+      setTimeout(() => loader.classList.add('hidden'), 5000);
+    });
+  });
+}

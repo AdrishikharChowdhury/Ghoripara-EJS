@@ -11,6 +11,9 @@
     />
   </head>
   <body class="w-full h-screen flex justify-center items-center flex-col">
+    <div id="loader" class="loader-overlay hidden">
+      <div class="loader"></div>
+    </div>
     <button
         type="button"
         onclick="history.back()"
@@ -18,7 +21,7 @@
       >
         <i class="fa-solid fa-xmark"></i>
       </button>
-    <h1 class="text-5xl font-bold">Edit Profile</h1>
+    <h1 class="text-5xl font-bold animate-fade-in-up">Edit Profile</h1>
     <form
       class="w-1/2 p-10 flex flex-col items-start justify-center gap-10"
       action="/user/edit"
@@ -91,11 +94,11 @@
         />
       </label>
       <button
-        class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
-        type="submit"
-      >
-        Save
-      </button>
-    </form>
-  </body>
+          class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
+    </body>
 </html>
