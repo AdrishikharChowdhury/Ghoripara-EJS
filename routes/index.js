@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { registerUser, loginUser, logoutUser } = require("../controllers/authController");
 const userModel = require("../models/user-model");
-const dbgr = require("debug")("development: dashboard");
+const dbgr = require("debug")("development: index");
 const { isLoggedIn } = require("../middlewares/loginVerify");
 const { generateToken } = require("../utils/generateToken");
 const bcrypt = require("bcrypt");
+const productModel=require("../models/product-model")
 
 router.get("/", (req, res) => {
   res.render("index");
@@ -29,13 +30,13 @@ router.get("/explore", isLoggedIn, async (req, res) => {
     let success = req.flash("success");
     const { email } = req.user;
     const user = await userModel.findOne({ email });
-
+    const products=await productModel.find()
     if (!user) {
       req.flash("error", "User not found. Please login again.");
       return res.redirect("/login");
     }
 
-    res.render("explore", { user,error,success });
+    res.render("explore", { user,error,success,products });
   } catch (error) {
     dbgr("Explore error:", error);
     req.flash("error", "Something went wrong. Please try again.");

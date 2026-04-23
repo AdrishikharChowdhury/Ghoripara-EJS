@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/css/output.css" />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
   </head>
-  <body class="flex w-full justify-center items-start h-full flex-col">
+  <body class="flex w-full justify-center items-start h-full flex-col min-h-screen">
     <% if(error.length>0){%>
       <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
         <span class="inline-block mt-1 mb-1 text-white">
@@ -27,6 +31,7 @@
       <h1 class="text-5xl font-extrabold animate-float">Ghoripara</h1>
       <ul class="flex items-center justify-center gap-10 text-xl">
         <a href="/explore"><li class="nav-link">Home</li></a>
+        <a href="/user/dashboard"><li class="nav-link">Profile</li></a>
         <a href="/settings"> <li class="nav-link">Settings</li></a>
         <a href="/logout"><li class="nav-link">Logout</li></a>
       </ul>
@@ -51,11 +56,32 @@
         </div>
         <div id="cart" class="w-full">
             <p class="text-3xl font-semibold ml-10">Your Cart:</p>
-            <div class="w-full flex justify-center items-center px-10">
+            <div class="w-full flex justify-center items-center px-10 gap-4">
                 <% if (user.cart.length===0){ %>
-                    <p class="text-4xl font-extralight mt-5 text-gray-300">No Items Yet</p>
+                    <p class="text-4xl font-extralight my-10 text-gray-300">No Items Yet</p>
                 <% } else{ %>
-
+                  <% user.cart.forEach((product)=>{ %>
+                    <div class="min-h-max h-150 w-100 shadow-xl border-2">
+                      <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic">
+                      <div class="w-full border-t-2 flex px-6 py-6 flex-col">
+                        <div class="flex justify-between items-center">
+                          <p class="text-xl w-3/4 font-semibold truncate"><%=product.name %></p>
+                              <% if (product.discount !==0){ %>
+                                <div class="flex flex-col">
+                                  <p class="text-md text-gray-600 line-through">&#8377;<%=product.price %></p>
+                                  <p class="text-lg">&#8377;<%=product.discount %></p>
+                                </div>  
+                              <% } else{ %>
+                                <div class="flex flex-col">
+                                  <p class="text-md text-gray-600 line-through">&#8377;<%=product.price %></p>
+                                  <p class="text-lg">&#8377;<%=product.price %></p>
+                                </div>
+                              <%} %>
+                            </div>
+                            <a href="/user/delete/<%=product._id%>" class="text-2xl cursor-pointer font-semibold rounded-full size-15 text-center flex items-center justify-center bg-red-500 text-white self-end relative -bottom-10"><i class="fa-solid fa-trash"></i></a>
+                          </div>
+                        </div>
+                  <% }) %>
                 <% } %>
             </div>
         </div>
@@ -63,13 +89,53 @@
             <p class="text-3xl font-semibold ml-10">Your Orders:</p>
             <div class="w-full flex justify-center items-center px-10">
                 <% if (user.orders.length===0){ %>
-                    <p class="text-4xl font-extralight mt-5 text-gray-300">No Orders Yet</p>
+                    <p class="text-4xl font-extralight my-10 text-gray-300">No Orders Yet</p>
                 <% } else{ %>
 
                 <% } %>
             </div>
         </div>
     </div>
-    
+    <footer class="w-full bg-black text-white px-10 py-14 flex flex-col gap-10">
+      <div class="w-full grid grid-cols-3 gap-10 border-b border-white/15 pb-10">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-4xl font-bold">Ghoripara</h2>
+          <p class="text-gray-400 leading-7 max-w-md">
+            Ghoripara is built for those who value precision, presence, and
+            timeless craftsmanship. More than watches, we curate statements that
+            outlive trends.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold">Quick Links</h3>
+          <ul class="flex flex-col gap-3 text-gray-300">
+            <li class="hover:text-white transition"><a href="/explore">Home</a></li>
+            <li class="hover:text-white transition"><a href="/user/dashboard">Profile</a></li>
+            <li class="hover:text-white transition"><a href="/settings">Settings</a></li>
+            <li class="hover:text-white transition"><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold">Contact</h3>
+          <ul class="flex flex-col gap-3 text-gray-300">
+            <li>Email: <a href="mailto:hello@ghoripara.com" class="hover:text-white transition">hello@ghoripara.com</a></li>
+            <li>Phone: <a href="tel:+910000000000" class="hover:text-white transition">+91 00000 00000</a></li>
+            <li>Kolkata, West Bengal, India</li>
+          </ul>
+          <div class="flex gap-4 mt-2">
+            <a href="#" class="hover:text-gray-300 transition">Instagram</a>
+            <a href="#" class="hover:text-gray-300 transition">Facebook</a>
+            <a href="#" class="hover:text-gray-300 transition">X</a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-between items-center text-sm text-gray-500">
+        <p>&copy; <%= new Date().getFullYear() %> Ghoripara. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

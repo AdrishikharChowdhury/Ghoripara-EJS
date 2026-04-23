@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
+  <body class="flex w-full">
+    <% if(error.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=error%>
+        </span>
+      </div>
+    <%} %>
+    <% if(success.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=success%>
+        </span>
+      </div>
+    <%} %>
+    <nav
+      class="flex flex-col justify-start gap-50 items-center px-8 pt-20 border-r-2 w-max bg-white min-h-screen animate-slide-down"
+    >
+      <h1 class="text-5xl font-extrabold animate-float">Ghoripara</h1>
+      <ul class="flex flex-col items-center justify-center gap-10 text-xl">
+        <a href="/owners/all"><li class="nav-link">All Products</li></a>
+        <a href="/owners/generate">
+          <li class="nav-link">Create New Product</li></a
+        >
+        <a href="/logout"><li class="nav-link">Logout</li></a>
+      </ul>
+    </nav>
+    <div class="p-10 flex-col flex gap-10 w-full self-center">
+      <h1 class="text-5xl font-extrabold">Create New Product</h1>
+      <form
+        autocomplete="off"
+        action="/products/generateproduct"
+        enctype="multipart/form-data"
+        class="w-full flex flex-col gap-10"
+        method="post"
+      >
+        <div class="border-2 p-10 rounded-2xl flex flex-col gap-4 w-full">
+          <h2 class="text-4xl font-extrabold">Product Details</h2>
+          <label class="flex gap-2 text-xl flex-col" for="image">
+            <p>Enter Product Image:</p>
+            <input
+              class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+              type="file"
+              name="image"
+              id="image"
+              accept="image/*" placeholder="Image should be below 5MB"
+            />
+          </label>
+          <label class="flex gap-2 text-xl flex-col" for="name">
+            <p>Enter Product Name:</p>
+            <input
+              type="text"
+              name="name"
+              class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+              id=""
+            />
+          </label>
+          <label class="flex gap-2 text-xl flex-col" for="details">
+            <p>Enter Product Details:</p>
+            <textarea name="details" class="resize-none p-4 bg-slate-300 outline-none rounded-xl w-full input-animate" id=""></textarea>
+          </label>
+          <label class="flex gap-2 text-xl flex-col" for="price">
+            <p>Enter Product Price:</p>
+            <input
+              type="number"
+              class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+              name="price"
+              id=""
+            />
+          </label>
+          <label class="flex gap-2 text-xl flex-col" for="price">
+            <p>Enter Discount Price:</p>
+            <input
+              type="number"
+              class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+              name="discount"
+              id=""
+            />
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="self-end text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
+        >
+          Add Product
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

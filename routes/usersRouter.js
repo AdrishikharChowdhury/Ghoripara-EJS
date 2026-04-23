@@ -4,6 +4,7 @@ const dbgr = require("debug")("development: user");
 const { isLoggedIn } = require("../middlewares/loginVerify");
 const { generateToken } = require("../utils/generateToken");
 const userModel = require("../models/user-model");
+const productModel=require("../models/product-model")
 
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   try {
@@ -11,7 +12,7 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     let success = req.flash("success");
     let { email } = req.user;
     let user = await userModel.findOne({ email });
-
+    await user.populate("cart")
     dbgr(user);
 
     if (!user) {
