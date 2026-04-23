@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/output.css" />
+    
+  </head>
+  <body class="w-full h-screen bg-white flex">
+    <% if(error.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=error%>
+        </span>
+      </div>
+    <%} %>
+    <% if(success.length>0){%>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-10">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%=success%>
+        </span>
+      </div>
+    <%} %>
+    <div class="w-1/2 h-full flex justify-center items-center flex-col gap-10 animate-fade-in-up">
+      <h1 class="text-5xl font-bold">Sign Up</h1>
+      <form
+        class="w-1/2 flex flex-col items-start justify-center gap-10"
+        action="/owners/create"
+        method="post"
+      >
+        <label
+          for="name"
+          class="w-full flex gap-2 justify-center items-start flex-col"
+        >
+          <p class="text-xl font-bold">Name:</p>
+          <input
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+            type="text"
+            name="name"
+            required
+          />
+        </label>
+        <label
+          for="email"
+          class="w-full flex gap-2 justify-center items-start flex-col"
+        >
+          <p class="text-xl font-bold">Email:</p>
+          <input
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+            type="email"
+            name="email"
+            required
+          />
+        </label>
+        <label
+          for="password"
+          class="w-full flex gap-2 justify-center items-start flex-col"
+        >
+          <p class="text-xl font-bold">Password:</p>
+          <input
+            class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+            type="password"
+            name="password"
+            required
+          />
+        </label>
+        <button
+          class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
+      <p class="tracking-widest text-md">Already have an account? <a href="/owners/login" class="hover:border-b-2 transition-all">Sign in</a> instead</p>
+    </div>
+    <div class="relative w-1/2 h-full animate-fade-in">
+      <img
+        class="w-full h-full object-center transition-transform duration-700 hover:scale-105"
+        src="/images/admin.webp"
+        alt=""
+      />
+      <div
+        class="absolute inset-0 bg-black/70 rounded-lg flex-col flex justify-center p-5 items-center gap-6 text-white"
+      >
+        <p class="text-6xl font-extrabold">ADMIN REGISTER</p>
+      </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

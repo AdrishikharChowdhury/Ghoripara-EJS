@@ -24,14 +24,14 @@ const ownerSchema = mongoose.Schema({
   },
   email: String,
   password: String,
-  products: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "products",
-  },
   pfp: {
     type: pfpSchema,
     default: defaultAvatar,
   },
+  isAdmin: {
+    type: Boolean,
+    default: true
+  }
 });
 
 module.exports = mongoose.model("Owner", ownerSchema);
