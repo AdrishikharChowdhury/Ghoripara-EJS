@@ -44,9 +44,9 @@
     <div class="w-full py-10 px-20 flex justify-center items-center gap-4 flex-wrap">
       <% if(products.length!==0){ %>
         <% products.forEach((product)=>{ %>
-          <a href="/products/<%= product._id %>">
-          <div class="min-h-max h-150 w-100 shadow-xl border-2">
-            <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic">
+          <div class="min-h-max h-150 w-100 shadow-2xl mb-4">
+            <a href="/products/<%= product._id %>">
+            <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic"></a>
             <div class="w-full border-t-2 flex px-6 py-6 flex-col">
               <div class="flex justify-between items-center">
                 <p class="text-xl w-3/4 font-semibold truncate"><%=product.name %></p>
@@ -62,11 +62,14 @@
                   </div>
                 <%} %>
               </div>
-              <a href="/products/cart/<%=product._id%>" class="text-2xl cursor-pointer font-semibold rounded-full size-15 text-center flex items-center justify-center bg-black text-white self-end relative -bottom-10"><i class="fa-solid fa-plus"></i></a>
+              <% if(user.cart.includes(product._id)){ %>
+                <span class="text-2xl cursor-pointer font-semibold rounded-full size-15 text-center flex items-center justify-center bg-black text-white self-end relative -bottom-10"><i class="fa-solid fa-check"></i></span>
+              <% } else{ %>
+                <a href="/products/cart/<%=product._id%>" class="text-2xl cursor-pointer font-semibold rounded-full size-15 text-center flex items-center justify-center bg-black text-white self-end relative -bottom-10"><i class="fa-solid fa-plus"></i></a>
+              <% } %>
             </div>
             
           </div>
-          </a>
         <% }) %>
       <% } else{ %>
         <p class="text-4xl font-extralight mt-5 text-gray-300">No Products Yet</p>

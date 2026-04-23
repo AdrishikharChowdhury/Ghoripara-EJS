@@ -81,4 +81,32 @@ router.get("/cart/:id", isLoggedIn, async (req, res) => {
   }
 });
 
+router.get("/order/:id",isLoggedIn,async (req,res) => {
+  try {
+    const {id}=req.params
+    const {email}=req.user
+    let user=await userModel.findOne({email})
+    if(!user){
+      dbgr("User Not Found")
+      req.flash("error","User Not Found")
+      return res.redirect(`/products/${id}`)
+    }
+    let product=await productModel.findOne({_id:id})
+    if(!product){
+      dbgr("Product Not Found")
+      req.flash("error","Product Not Found")
+      return res.redirect(`/products/${id}`)
+    }
+    if(user.cart.includes(product._id)){
+      user.cart.pull(product._id)
+    }
+    user.orders.push(product._id)
+    await user.save()
+    req.flash("success","Product Has Been Ordered")
+    return res.redirect("/user/dashboard")
+  } catch (error) {
+    dbgr(error.message)
+  }
+})
+
 module.exports = router;

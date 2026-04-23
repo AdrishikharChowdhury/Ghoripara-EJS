@@ -56,13 +56,14 @@
         </div>
         <div id="cart" class="w-full">
             <p class="text-3xl font-semibold ml-10">Your Cart:</p>
-            <div class="w-full flex justify-center items-center px-10 gap-4">
+            <div class="w-full flex justify-center items-center px-10 gap-4 flex-wrap">
                 <% if (user.cart.length===0){ %>
                     <p class="text-4xl font-extralight my-10 text-gray-300">No Items Yet</p>
                 <% } else{ %>
                   <% user.cart.forEach((product)=>{ %>
                     <div class="min-h-max h-150 w-100 shadow-xl border-2">
-                      <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic">
+                      <a href="/products/<%= product._id %>">
+                      <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic"></a>
                       <div class="w-full border-t-2 flex px-6 py-6 flex-col">
                         <div class="flex justify-between items-center">
                           <p class="text-xl w-3/4 font-semibold truncate"><%=product.name %></p>
@@ -87,11 +88,33 @@
         </div>
         <div id="orders" class="w-full">
             <p class="text-3xl font-semibold ml-10">Your Orders:</p>
-            <div class="w-full flex justify-center items-center px-10">
+            <div class="w-full flex justify-center items-center px-10 gap-4 flex-wrap">
                 <% if (user.orders.length===0){ %>
                     <p class="text-4xl font-extralight my-10 text-gray-300">No Orders Yet</p>
                 <% } else{ %>
-
+                  <% user.orders.forEach((product)=>{ %>
+                    <div class="min-h-max h-150 w-100 shadow-xl border-2">
+                      <a href="/products/<%= product._id %>">
+                      <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic"></a>
+                      <div class="w-full border-t-2 flex px-6 py-6 flex-col">
+                        <div class="flex justify-between items-center">
+                          <p class="text-xl w-3/4 font-semibold truncate"><%=product.name %></p>
+                              <% if (product.discount !==0){ %>
+                                <div class="flex flex-col">
+                                  <p class="text-md text-gray-600 line-through">&#8377;<%=product.price %></p>
+                                  <p class="text-lg">&#8377;<%=product.discount %></p>
+                                </div>  
+                              <% } else{ %>
+                                <div class="flex flex-col">
+                                  <p class="text-md text-gray-600 line-through">&#8377;<%=product.price %></p>
+                                  <p class="text-lg">&#8377;<%=product.price %></p>
+                                </div>
+                              <%} %>
+                            </div>
+                            <a href="/user/order/delete/<%=product._id%>" class="text-2xl cursor-pointer font-semibold rounded-full size-15 text-center flex items-center justify-center bg-red-500 text-white self-end relative -bottom-10"><i class="fa-solid fa-trash"></i></a>
+                          </div>
+                        </div>
+                  <% }) %>
                 <% } %>
             </div>
         </div>

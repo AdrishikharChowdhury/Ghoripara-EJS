@@ -70,8 +70,16 @@
           <% } %>
         </div>
         <div class="flex items-center gap-4 mt-6">
-          <a href="/products/cart/<%=product._id%>" class="bg-black text-white px-8 py-4 text-xl">Add To Cart</a>
-          <a href="" class="bg-black text-white px-8 py-4 text-xl">Buy Now</a>
+          <% if (user.cart.includes(product._id)){ %>
+            <div class="bg-black text-white px-8 py-4 text-xl">Added To Cart</div>
+          <% } else { %>
+            <a href="/products/cart/<%=product._id%>" class="bg-black text-white px-8 py-4 text-xl">Add To Cart</a>
+          <% } %>
+          <% if (user.orders.includes(product._id)){ %>
+            <span class="bg-black/70 text-white px-8 py-4 text-xl">Ordered</span>
+          <% } else { %>
+            <a href="/products/order/<%=product._id%>" class="bg-black text-white px-8 py-4 text-xl">Buy Now</a>
+          <% } %>
         </div>
       </div>
     </div>
