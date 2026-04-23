@@ -221,6 +221,9 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-5 {
     top: calc(var(--spacing) * 5);
   }
@@ -660,6 +663,9 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -668,6 +674,9 @@
   }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
+  }
+  .px-12 {
+    padding-inline: calc(var(--spacing) * 12);
   }
   .px-20 {
     padding-inline: calc(var(--spacing) * 20);

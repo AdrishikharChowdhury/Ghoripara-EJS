@@ -32,7 +32,7 @@
       <ul class="flex items-center justify-center gap-10 text-xl">
         <a href="/explore"><li class="nav-link">Home</li></a>
         <a href="/user/dashboard"><li class="nav-link">Profile</li></a>
-        <a href="/settings"> <li class="nav-link">Settings</li></a>
+        <a href="/user/settings"> <li class="nav-link">Settings</li></a>
         <a href="/logout"><li class="nav-link">Logout</li></a>
       </ul>
       <img
@@ -71,7 +71,7 @@
         </div>
         <div class="flex items-center gap-4 mt-6">
           <% if (user.cart.includes(product._id)){ %>
-            <div class="bg-black text-white px-8 py-4 text-xl">Added To Cart</div>
+            <div class="bg-black/70 text-white px-8 py-4 text-xl">Added To Cart</div>
           <% } else { %>
             <a href="/products/cart/<%=product._id%>" class="bg-black text-white px-8 py-4 text-xl">Add To Cart</a>
           <% } %>
@@ -99,7 +99,7 @@
           <ul class="flex flex-col gap-3 text-gray-300">
             <li class="hover:text-white transition"><a href="/explore">Explore</a></li>
             <li class="hover:text-white transition"><a href="/user/dashboard">Profile</a></li>
-            <li class="hover:text-white transition"><a href="/settings">Settings</a></li>
+            <li class="hover:text-white transition"><a href="/user/settings">Settings</a></li>
             <li class="hover:text-white transition"><a href="/logout">Logout</a></li>
           </ul>
         </div>

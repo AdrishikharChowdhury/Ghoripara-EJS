@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="/css/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body class="w-full h-screen flex justify-center items-center flex-col">
+    <button
+        type="button"
+        onclick="history.back()"
+        class="px-12 py-6 rounded-lg self-end text-6xl cursor-pointer absolute top-0"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    <h1 class="text-5xl font-bold">Edit Profile</h1>
+    <form
+      class="w-1/2 p-10 flex flex-col items-start justify-center gap-10"
+      action="/user/edit"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label
+        class="w-full flex gap-2 justify-center items-start flex-col"
+        for="image"
+      >
+        <p class="text-xl font-bold">Choose Profile Picture:</p>
+        <input
+          class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+          type="file"
+          name="image"
+          id=""
+          accept="image/*"
+        />
+      </label>
+      <label
+        class="w-full flex gap-2 justify-center items-start flex-col"
+        for="name"
+      >
+        <p class="text-xl font-bold">Edit Name:</p>
+        <input
+          class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+          type="text"
+          name="name"
+          id=""
+          value="<%=user.name%>"
+        />
+      </label>
+      <label
+        class="w-full flex gap-2 justify-center items-start flex-col"
+        for="email"
+      >
+        <p class="text-xl font-bold">Edit Email:</p>
+        <input
+          class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+          type="email"
+          name="email"
+          id=""
+          value="<%=user.email%>"
+        />
+      </label>
+      <label
+        class="w-full flex gap-2 justify-center items-start flex-col"
+        for="password"
+      >
+        <p class="text-xl font-bold">Edit Password:</p>
+        <input
+          class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+          type="password"
+          name="password"
+          id=""
+          placeholder="Enter a New Password"
+        />
+      </label>
+      <label
+        class="w-full flex gap-2 justify-center items-start flex-col"
+        for="contact"
+      >
+        <p class="text-xl font-bold">Edit Contact No:</p>
+        <input
+          class="p-4 bg-slate-300 outline-none rounded-xl w-full input-animate"
+          type="number"
+          name="contact"
+          value="<%=user.contact%>"
+          id=""
+        />
+      </label>
+      <button
+        class="self-center text-xl font-bold bg-slate-300 py-4 px-8 rounded-2xl cursor-pointer btn-animate"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </body>
+</html>
