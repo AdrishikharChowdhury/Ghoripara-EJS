@@ -3,7 +3,7 @@ const dbgr=require('debug')("development:mongoose")
 const config =require("config")
 
 mongoose
-  .connect(`${config.get("MONGODB_URI")}/boipara`)
+  .connect(`${config.get("MONGODB_URI")}/ghoripara`)
   .then(() => {
     dbgr("Connected");
   })

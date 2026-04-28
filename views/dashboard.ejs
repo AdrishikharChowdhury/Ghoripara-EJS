@@ -96,7 +96,7 @@
                     <div class="min-h-max h-150 w-100 shadow-xl card-hover animate-fade-in-up" style="animation-delay: <%= index * 100 %>ms">
                       <a href="/products/<%= product._id %>">
                       <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100 image-zoom" alt="prodPic"></a>
-                      <img src="data:<%= product.image.mimetype %>;base64,<%= product.image.buffer.toString('base64')%>" class="block mx-auto object-center w-max h-100" alt="prodPic"></a>
+                      </a>
                       <div class="w-full border-t-2 flex px-6 py-6 flex-col">
                         <div class="flex justify-between items-center">
                           <p class="text-xl w-3/4 font-semibold truncate"><%=product.name %></p>

@@ -5,6 +5,7 @@ const upload = require("../config/multer-config");
 const productModel = require("../models/product-model");
 const userModel = require("../models/user-model");
 const { isLoggedIn } = require("../middlewares/loginVerify");
+const { isAdmin } = require("../middlewares/adminVerify");
 
 router.post(
   "/generateproduct",
@@ -80,6 +81,25 @@ router.get("/cart/:id", isLoggedIn, async (req, res) => {
     dbgr(error.message);
   }
 });
+
+router.get("/delete/:id",isLoggedIn,isAdmin,async (req,res) => {
+  try {
+    const {id}=req.params
+    let product=await productModel.findOne({_id:id})
+    if(!product){
+      dbgr("Product Not found")
+      req.flash("error","Product Not Found")
+    return res.redirect("/owners/all")
+    }
+    await productModel.findOneAndDelete({_id:id})
+
+    req.flash("success","Product Has Been Removed")
+    return res.redirect("/owners/all")
+
+  } catch (error) {
+    dbgr(error.message)
+  }
+})
 
 router.get("/order/:id",isLoggedIn,async (req,res) => {
   try {
